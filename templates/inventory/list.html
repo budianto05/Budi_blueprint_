@@ -1,0 +1,36 @@
+{% extends "layout.html" %}
+{% block title %}Inventory List - Budi Blueprint{% endblock %}
+
+{% block content %}
+<div class="d-flex justify-content-between mb-3">
+    <h3>Inventory</h3>
+    <a href="{{ url_for('inventory.add_inventory') }}" class="btn btn-success">Tambah Barang</a>
+</div>
+
+<table class="table table-striped table-hover">
+    <thead class="table-primary">
+        <tr>
+            <th>ID</th>
+            <th>Nama Barang</th>
+            <th>Stock</th>
+            <th>Harga</th>
+            <th>Aksi</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for item in inventories %}
+        <tr>
+            <td>{{ item.id }}</td>
+            <td>{{ item.name }}</td>
+            <td>{{ item.stock }}</td>
+            <td>{{ item.price }}</td>
+            <td>
+                <a href="{{ url_for('inventory.edit_inventory', inventory_id=item.id) }}" class="btn btn-warning btn-sm">Edit</a>
+                <a href="{{ url_for('inventory.delete_inventory', inventory_id=item.id) }}" class="btn btn-danger btn-sm">Hapus</a>
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}
+

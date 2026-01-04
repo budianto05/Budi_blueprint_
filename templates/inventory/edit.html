@@ -1,0 +1,23 @@
+{% extends "layout.html" %}
+{% block title %}Edit Inventory - Budi Blueprint{% endblock %}
+
+{% block content %}
+<h3>Edit Barang</h3>
+<form method="POST">
+    <div class="mb-3">
+        <label class="form-label">Nama Barang</label>
+        <input type="text" name="name" value="{{ item.name }}" class="form-control" required>
+    </div>
+    <div class="mb-3">
+        <label class="form-label">Stock</label>
+        <input type="number" name="stock" value="{{ item.stock }}" class="form-control" required>
+    </div>
+    <div class="mb-3">
+        <label class="form-label">Harga</label>
+        <input type="number" name="price" value="{{ item.price }}" step="0.01" class="form-control" required>
+    </div>
+    <button type="submit" class="btn btn-warning">Update</button>
+    <a href="{{ url_for('inventory.list_inventory') }}" class="btn btn-secondary">Batal</a>
+</form>
+{% endblock %}
+
