@@ -1,6 +1,15 @@
-echo "venv/
+# Ignore virtual environment folder
+venv/
+
+# Ignore SELECT file
+SELECT
+
+# Ignore Python bytecode files
 __pycache__/
 *.pyc
-instance/*.db
-SELECT" > .gitignore
+
+# Ignore other possible unnecessary files
+*.log
+# Ignore database folder
+instance/
 
